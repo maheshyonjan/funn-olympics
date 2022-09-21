@@ -26,8 +26,17 @@
                   <div class="header-text">
                     <h6>Browse Your Favorite Games On</h6>
                     <h4><em>Fun</em>Olympics</h4>
-                    <div class="main-button">
-                      <router-link to="/login">Login</router-link>
+                    <div class="btn-container d-flex">
+                      <div class="main-button">
+                        <router-link
+                          to="/login"
+                          style="width: 110px; text-align: center"
+                          >Login</router-link
+                        >
+                      </div>
+                      <div class="register-button ml-3">
+                        <router-link to="/register">Register</router-link>
+                      </div>
                     </div>
                   </div>
                 </div>

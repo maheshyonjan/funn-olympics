@@ -3,7 +3,22 @@
     {
       "email": "olivier@mail.com",
       "password": "$2a$10$MvKmzFeMIQurx6kCsGT9.eHfIdqhFsOZ6XeZSUwJwU0iro0b4ShDa",
-      "id": 1
+      "name": "Oliver Smith",
+      "id": 1,
+      "role": "admin",
+      "gender": "male",
+      "age": "27",
+      "contactNo": "9882918272"
+    },
+    {
+      "email": "ayush@mail.com",
+      "password": "$2a$10$Wonp2z8jNTs1xoVs1b8nv.JicU7zlPXrztDT9GqELZheEjkl3k61m",
+      "name": "Ayush Pokhrel",
+      "role": "admin",
+      "gender": "male",
+      "age": "29",
+      "contactNo": "9874849363",
+      "id": 2
     }
   ]
 }

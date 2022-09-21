@@ -18,7 +18,11 @@
       </div>
       <div class="already-acc">
         <CCol class="text-left m-0 px-0 pt-3" @click="goToLogin">
-          <CButton style="color: white">
+          <CButton
+            class="question-text"
+            style="color: white"
+            @click="goToLogin"
+          >
             already have an account? Login
           </CButton>
         </CCol>
@@ -28,7 +32,7 @@
           <button class="btn" @click="Register">Register</button>
         </div>
         <div class="btn-box2">
-          <button class="btn2" @click="Register">Cancel</button>
+          <button class="btn2" @click="goToHome">Cancel</button>
         </div>
       </div>
     </div>
@@ -36,6 +40,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Register",
   data() {
@@ -47,12 +52,22 @@ export default {
   },
   mounted() {},
   methods: {
-    Register() {
+    async Register() {
+      try {
+      } catch (e) {
+        alert(`error!\n could not register\n${e}`);
+      }
       this.consoledd();
       this.$router.push("/admin");
     },
     consoledd() {
       console.log("Register");
+    },
+    goToLogin() {
+      this.$router.push("/login");
+    },
+    goToHome() {
+      this.$router.push("/");
     },
   },
 };
@@ -97,6 +112,9 @@ body {
   justify-content: center;
 }
 
+.question-text:hover {
+  color: orange;
+}
 .box1,
 .box2 {
   width: 300px;

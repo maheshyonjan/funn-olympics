@@ -16,6 +16,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
+import store from './store/store'
 
 // LightBootstrap plugin
 import LightBootstrap from './light-bootstrap-main'
@@ -28,13 +29,16 @@ import './registerServiceWorker'
 Vue.use(VueRouter)
 Vue.use(LightBootstrap)
 
+import { axios } from "axios";
+Vue.prototype.axios = axios;
+
 // configure router
 const router = new VueRouter({
   routes, // short for routes: routes
   linkActiveClass: 'nav-item active',
   scrollBehavior: (to) => {
     if (to.hash) {
-      return {selector: to.hash}
+      return { selector: to.hash }
     } else {
       return { x: 0, y: 0 }
     }
@@ -44,6 +48,8 @@ const router = new VueRouter({
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
+  axios,
   render: h => h(App),
   router
 })

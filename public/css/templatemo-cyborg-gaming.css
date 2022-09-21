@@ -166,6 +166,49 @@ p {
   color: orange;
 }
 
+
+.register-button a {
+  font-size: 14px;
+  color: orange;
+  background-color: rgb(82, 82, 82);
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-button a:hover {
+  background-color: rgb(255, 255, 255);
+  color: orange;
+}
+
+.register-border-button a {
+  font-size: 14px;
+  color: orange;
+  background-color: transparent;
+  border: 1px solid orange;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-border-button a:hover {
+  border-color: #fff;
+  background-color: #fff;
+  color: orange;
+}
+
 .border-no-active a {
   border-color: #666;
   color: #666;
