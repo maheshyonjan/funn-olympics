@@ -2,6 +2,9 @@ import DashboardLayout from '../layout/DashboardLayout.vue'
 // GeneralViews
 import NotFound from '../pages/NotFoundPage.vue'
 
+
+
+
 // Admin pages
 import Overview from 'src/pages/Overview.vue'
 import UserProfile from 'src/pages/UserProfile.vue'
@@ -11,12 +14,48 @@ import Icons from 'src/pages/Icons.vue'
 import Maps from 'src/pages/Maps.vue'
 import Notifications from 'src/pages/Notifications.vue'
 import Upgrade from 'src/pages/Upgrade.vue'
+import Home from '../components/UserSideApp/Home.vue'
+
+
+import Vue from 'vue'
+import Router from 'vue-router'
+Vue.use(Router)
 
 const routes = [
   {
     path: '/',
-    component: DashboardLayout,
-    redirect: '/admin/overview'
+    component: Home,
+    name: "home"
+  },
+  {
+    path: '/livebroadcast',
+    name: 'livebroadcast',
+    component: () => import('@/components/UserSideApp/LiveBroadcast.vue')
+  },
+  {
+    path: '/sports',
+    name: 'sports',
+    component: () => import('@/components/UserSideApp/Sports.vue')
+  },
+  {
+    path: '/news',
+    name: 'news',
+    component: () => import('@/components/UserSideApp/News.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/components/Forms/Login.vue')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import('@/components/Forms/Register.vue')
+  },
+  {
+    path: '/aboutus',
+    name: 'aboutus',
+    component: () => import('@/components/UserSideApp/AboutUs.vue')
   },
   {
     path: '/admin',
@@ -67,6 +106,12 @@ const routes = [
   },
   { path: '*', component: NotFound }
 ]
+
+// const router = new Router({
+//   mode: 'history',
+//   routes: routes,
+// })
+
 
 /**
  * Asynchronously load view (Webpack Lazy loading compatible)
