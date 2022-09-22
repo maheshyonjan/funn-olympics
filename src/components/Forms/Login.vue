@@ -21,10 +21,7 @@
 </template>
 
 <script>
-import { axios } from "axios";
-// import Vue from "vue";
-
-// Vue.prototype.axios = axios;
+import store from "../../store/store";
 
 export default {
   name: "login",
@@ -33,38 +30,48 @@ export default {
       email: "ayush@mail.com",
       password: "bestPassw0rd",
       token: null,
+      count: null,
+      role: "",
     };
   },
-  mounted() {},
+  mounted() {
+    this.count = store.state.count;
+    console.log(this.count);
+  },
   methods: {
     login() {
-      if (this.email.length > 0 && this.password.length > 0) {
-        console.log(this);
-        console.log("test");
-        console.log(this.email);
-        console.log(this.password);
-        this.$axios
-          .post(`http://localhost:3000/login`, {
-            email: this.email,
-            password: this.password,
-          })
-          .then((response) => {
-            console.log(response);
-            //   data.accessToken = res.data.accessToken;
-            //   data.loggedInUser = res.data.user;
-            //   console.log(res.data.accessToken);
-            //   console.log(res.data.user);
-            //   localStorage.setItem("token", data.accessToken);
-            //   localStorage.setItem("role", data.loggedInUser.role);
-            this.goToDashboard();
-          })
-          .catch((err) => {
-            alert(`could not login \n ${err}`);
-            console.log(err);
-          });
-      } else {
-        alert("password or email must not be empty!");
-      }
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: this.email,
+          password: this.password,
+        }),
+      };
+      fetch(`${store.state.baseUrl}/login`, requestOptions)
+        .then(async (response) => {
+          const data = await response.json();
+
+          // check for error response
+          if (!response.ok) {
+            // get error message from body or default to response status
+            const error = (data && data.message) || response.status;
+            return Promise.reject(error);
+          }
+          this.token = await data.accessToken;
+          this.role = await data.user.role;
+          localStorage.setItem("token", this.token);
+          localStorage.setItem("role", this.role);
+          if (this.role === "admin") {
+            this.$router.push("/admin");
+          } else {
+            this.$router.push("/");
+          }
+        })
+        .catch((error) => {
+          alert("cannot login\n email or password incorrect");
+          console.error("There was an error!", error);
+        });
     },
     goToDashboard() {
       this.consoledd();

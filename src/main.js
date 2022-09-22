@@ -16,7 +16,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
-import store from './store/store'
+import store from '../src/store/store'
 
 // LightBootstrap plugin
 import LightBootstrap from './light-bootstrap-main'
@@ -36,6 +36,7 @@ Vue.prototype.axios = axios;
 const router = new VueRouter({
   routes, // short for routes: routes
   linkActiveClass: 'nav-item active',
+  mode: "history",
   scrollBehavior: (to) => {
     if (to.hash) {
       return { selector: to.hash }

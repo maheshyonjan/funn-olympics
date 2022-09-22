@@ -19,6 +19,16 @@
       "age": "29",
       "contactNo": "9874849363",
       "id": 2
+    },
+    {
+      "email": "jhonny@gmail.com",
+      "password": "$2a$10$ZTuOuYBkF3bFrYSdy6JuPuVd4oX9qqolbu169xmnLXK1JtMFZzG/.",
+      "name": "jhonny depp",
+      "gender": "male",
+      "address": "california, USA",
+      "contactNo": "+14844608073",
+      "role": "user",
+      "id": 3
     }
   ]
 }

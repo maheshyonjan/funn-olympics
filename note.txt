@@ -1,1 +1,31 @@
 "vue-router": "^3.0.2",
+
+
+login
+// if (this.email.length > 0 && this.password.length > 0) {
+      //   console.log(this);
+      //   console.log("test");
+      //   console.log(this.email);
+      //   console.log(this.password);
+      //   this.$axios
+      //     .post(`http://localhost:3000/login`, {
+      //       email: this.email,
+      //       password: this.password
+      //     })
+      //     .then((response) => {
+      //       console.log(response);
+      //       //   data.accessToken = res.data.accessToken;
+      //       //   data.loggedInUser = res.data.user;
+      //       //   console.log(res.data.accessToken);
+      //       //   console.log(res.data.user);
+      //       //   localStorage.setItem("token", data.accessToken);
+      //       //   localStorage.setItem("role", data.loggedInUser.role);
+      //       this.goToDashboard();
+      //     })
+      //     .catch((err) => {
+      //       alert(`could not login \n ${err}`);
+      //       console.log(err);
+      //     });
+      // } else {
+      //   alert("password or email must not be empty!");
+      // }

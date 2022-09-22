@@ -4,16 +4,31 @@
       <h1>Register</h1>
       <div class="inner-box">
         <div class="box1">
-          <input type="text" name="" placeholder="Name" />
-          <input type="text" name="" placeholder="Age" />
-          <input type="text" name="" placeholder="Address" />
-          <input type="text" name="" placeholder="Gender" />
+          <input v-model="name" type="text" name="" placeholder="Name" />
+          <input v-model="age" type="text" name="" placeholder="Age" />
+          <input v-model="address" type="text" name="" placeholder="Address" />
+          <input v-model="gender" type="text" name="" placeholder="Gender" />
         </div>
         <div class="box2">
-          <input type="text" name="" placeholder="Contact No" />
-          <input type="text" name="" placeholder="Email" />
-          <input type="password" name="" placeholder="Password" />
-          <input type="password" name="" placeholder="Password" />
+          <input
+            v-model="contactNo"
+            type="text"
+            name=""
+            placeholder="Contact No"
+          />
+          <input v-model="email" type="text" name="" placeholder="Email" />
+          <input
+            v-model="password"
+            type="password"
+            name=""
+            placeholder="Password"
+          />
+          <input
+            v-model="confirmPassword"
+            type="password"
+            name=""
+            placeholder="Password"
+          />
         </div>
       </div>
       <div class="already-acc">
@@ -40,25 +55,61 @@
 </template>
 
 <script>
-import axios from "axios";
+import store from "../../store/store";
 export default {
   name: "Register",
   data() {
     return {
-      email: null,
-      password: null,
-      token: null,
+      name: "",
+      age: "",
+      gender: "",
+      address: "",
+      contactNo: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
     };
   },
   mounted() {},
   methods: {
     async Register() {
-      try {
-      } catch (e) {
-        alert(`error!\n could not register\n${e}`);
-      }
-      this.consoledd();
-      this.$router.push("/admin");
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: this.email,
+          password: this.password,
+          name: this.name,
+          gender: this.gender,
+          address: this.address,
+          contactNo: this.contactNo,
+          role: "user",
+        }),
+      };
+      fetch(`${store.state.baseUrl}/register`, requestOptions)
+        .then(async (response) => {
+          const data = await response.json();
+
+          // check for error response
+          if (!response.ok) {
+            // get error message from body or default to response status
+            const error = (data && data.message) || response.status;
+            return Promise.reject(error);
+          }
+          this.token = await data.accessToken;
+          this.role = await data.user.role;
+          localStorage.setItem("token", this.token);
+          localStorage.setItem("role", this.role);
+          if (this.role === "admin") {
+            this.$router.push("/admin");
+          } else {
+            this.$router.push("/");
+          }
+        })
+        .catch((error) => {
+          alert("cannot login\n email or password incorrect");
+          console.error("There was an error!", error);
+        });
     },
     consoledd() {
       console.log("Register");
