@@ -67,8 +67,9 @@
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 ></iframe>
+                <div><h3 class="mt-2">Nepal VS India 1-0 | SEMI FINAL</h3></div>
               </div>
-              <!-- <LiveComment style="margin-left: 30px; margin-top: 30px" /> -->
+              <LiveComments style="margin-left: 30px" />
             </div>
           </div>
         </div>
@@ -86,7 +87,7 @@
                 href="https://templatemo.com"
                 target="_blank"
                 title="free CSS templates"
-                >Ayush Pokharel</a
+                >Mahesh Tamang</a
               >
             </p>
           </div>
@@ -97,11 +98,12 @@
 </template>
 
 <script setup>
-import Navbar from "./Navbar.vue";
+import Navbar from "../Navbar.vue";
+import LiveComments from "./LiveComments.vue";
 </script>
 
 <script>
-import store from "../../store/store";
+import store from "@/store/store";
 export default {
   name: "livebroadcast",
   data() {
@@ -110,8 +112,11 @@ export default {
     };
   },
   beforeMount() {
-    console.log(store.state.liveStreamId);
-    this.liveStreamId = store.state.liveStreamId;
+    if (localStorage.role === "user" || localStorage.role === "admin") {
+      this.liveStreamId = store.state.liveStreamId;
+    } else {
+      this.$router.push("/login");
+    }
   },
 };
 </script>

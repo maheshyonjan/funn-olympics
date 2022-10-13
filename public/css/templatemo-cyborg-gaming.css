@@ -62,10 +62,18 @@ a:hover {
 	color: orange;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4 {
   margin-top: 0px;
   margin-bottom: 0px;
-  color: #fff;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+}
+
+
+ h5, h6 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: rgb(0, 0, 0);
   font-weight: 700;
 }
 

@@ -1,34 +1,69 @@
 {
   "users": [
     {
-      "email": "olivier@mail.com",
-      "password": "$2a$10$MvKmzFeMIQurx6kCsGT9.eHfIdqhFsOZ6XeZSUwJwU0iro0b4ShDa",
-      "name": "Oliver Smith",
-      "id": 1,
-      "role": "admin",
+      "email": "samir@gmail.com",
+      "password": "$2a$10$POEltmeVcEgkZamuYGu2AeV2BcuJSa0NwK.slZ7N0siVJjjmRshrq",
+      "name": "samir bhujhel",
       "gender": "male",
-      "age": "27",
-      "contactNo": "9882918272"
+      "address": "pokhara,nepal",
+      "age": "30",
+      "contactNo": "9882918272",
+      "role": "user",
+      "id": 1
     },
     {
-      "email": "ayush@mail.com",
-      "password": "$2a$10$Wonp2z8jNTs1xoVs1b8nv.JicU7zlPXrztDT9GqELZheEjkl3k61m",
+      "email": "ayush@gmail.com",
+      "password": "$2a$10$4egQ9/xR6b/EzbswSBMq3ePK6ZFaqTliCWl5K8Pem/z9mFaml1R4u",
       "name": "Ayush Pokhrel",
-      "role": "admin",
       "gender": "male",
-      "age": "29",
+      "address": "kathmandu, Nepal",
+      "age": "30",
       "contactNo": "9874849363",
+      "role": "admin",
       "id": 2
     },
     {
       "email": "jhonny@gmail.com",
-      "password": "$2a$10$ZTuOuYBkF3bFrYSdy6JuPuVd4oX9qqolbu169xmnLXK1JtMFZzG/.",
+      "password": "$2a$10$7nr6GwNrSVsi30j..gGFbueAxdq.TIWtvKj5fJ8Ghih68ZxwogcU.",
       "name": "jhonny depp",
       "gender": "male",
       "address": "california, USA",
+      "age": "60",
       "contactNo": "+14844608073",
       "role": "user",
       "id": 3
+    },
+    {
+      "email": "test2@gmail.com",
+      "password": "$2a$10$YeIrOu0MbZeAcUhDgqLdQuCHsJlpCYJ1s4TQrM162FxM1qqjqLpcS",
+      "name": "test",
+      "gender": "male",
+      "address": "test, test",
+      "contactNo": "+148446083453",
+      "role": "user",
+      "id": 6
+    },
+    {
+      "email": "testuser@gmail.com",
+      "password": "$2a$10$IGIrtDIxyrtLkjWtXesc5.cHlqivT0ybMEh2T1NiWuDKAQYq29JWy",
+      "name": "test user",
+      "gender": "female",
+      "address": "bhaktapur, Nepal",
+      "contactNo": "9812653245",
+      "age": "20",
+      "role": "user",
+      "id": 8
+    },
+    {
+      "email": "mahesh@gmail.com",
+      "password": "$2a$10$XVV8Kr/JPQc.iI4eSSxuA.TRT9z2xAi/Hxf0LbrhFlrgGJRHZC062",
+      "name": "mahesh yonjan",
+      "gender": "male",
+      "address": "bhaktapur,nepal",
+      "age": "20",
+      "contactNo": "9826653215",
+      "role": "user",
+      "id": 9
     }
   ]
 }

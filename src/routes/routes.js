@@ -8,13 +8,14 @@ import NotFound from '../pages/NotFoundPage.vue'
 // Admin pages
 import Overview from 'src/pages/Overview.vue'
 import UserProfile from 'src/pages/UserProfile.vue'
-import TableList from 'src/pages/TableList.vue'
+import UserList from '../components/UserList/UserTable.vue'
 import Typography from 'src/pages/Typography.vue'
 import Icons from 'src/pages/Icons.vue'
 import Maps from 'src/pages/Maps.vue'
 import Notifications from 'src/pages/Notifications.vue'
 import Upgrade from 'src/pages/Upgrade.vue'
 import Home from '../components/UserSideApp/Home.vue'
+// import UserHome from '@/components/UserSideApp/userDashboard/UserHome.vue'
 
 
 import Vue from 'vue'
@@ -30,7 +31,7 @@ const routes = [
   {
     path: '/livebroadcast',
     name: 'livebroadcast',
-    component: () => import('@/components/UserSideApp/LiveBroadcast.vue')
+    component: () => import('@/components/UserSideApp/LiveBroadcast/LiveBroadcast.vue')
   },
   {
     path: '/sports',
@@ -53,9 +54,27 @@ const routes = [
     component: () => import('@/components/Forms/Register.vue')
   },
   {
+    path: '/resetpassword',
+    name: 're-set password',
+    component: () => import('@/components/Forms/ResetPassword.vue')
+  },
+  {
     path: '/aboutus',
     name: 'aboutus',
     component: () => import('@/components/UserSideApp/AboutUs.vue')
+  },
+  {
+    path: '/userprofile',
+    name: 'userProfilie',
+    component: () => import('@/components/UserSideApp/UserProfile/UserProfile.vue')
+  },
+  {
+    path: '/user',
+    name: 'userhome',
+    component: () => import('@/components/UserSideApp/userDashboard/UserHome.vue'),
+    children: [
+
+    ]
   },
   {
     path: '/admin',
@@ -73,9 +92,9 @@ const routes = [
         component: UserProfile
       },
       {
-        path: 'table-list',
-        name: 'Table List',
-        component: TableList
+        path: 'userlist',
+        name: 'User List',
+        component: UserList
       },
       {
         path: 'typography',

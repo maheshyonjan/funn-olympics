@@ -22,14 +22,27 @@
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li><router-link to="/">Home</router-link></li>
-              <li><router-link to="/sports">Sports</router-link></li>
-              <li><router-link to="/news">News</router-link></li>
               <li>
                 <router-link to="/livebroadcast">Live Broadcast</router-link>
               </li>
-              <li><router-link to="aboutus">About Us</router-link></li>
+              <li><router-link to="/sports">Sports</router-link></li>
+              <li><router-link to="/news">News</router-link></li>
+
+              <!-- <li v-if="loginStatus">
+                <router-link to="/aboutus">About Us</router-link>
+              </li> -->
+              <li v-if="!loginStatus">
+                <a @click="logout">Logout</a>
+              </li>
               <li>
-                <a href="profile.html"
+                <a
+                  v-if="loginStatus"
+                  @click="goToLogin"
+                  class="pr-3"
+                  style="background-color: rgb(82, 82, 82); color: #fff"
+                  >Login
+                </a>
+                <a @click="goToUserProfile" v-if="!loginStatus"
                   >Profile <img src="@/assets/images/profile-header.jpg" alt=""
                 /></a>
               </li>
@@ -46,6 +59,54 @@
   <!-- ***** Header Area End ***** -->
 </template>
 
-<script setup></script>
+<script>
+import store from "../../store/store";
+export default {
+  name: "navbar",
+  data() {
+    return {
+      loginStatus: false,
+    };
+  },
+  mounted() {
+    this.toggleLoginStatus();
+  },
+  watch: {
+    question(newQuestion, oldQuestion) {
+      if (newQuestion.includes("?")) {
+        this.getAnswer();
+      }
+    },
+  },
+  methods: {
+    goToLogin() {
+      this.$router.push("/login");
+    },
+    toggleLoginStatus() {
+      if (localStorage.role === "user" || localStorage.role === "admin") {
+        this.loginStatus = false;
+      } else {
+        this.loginStatus = true;
+      }
+    },
+    logout() {
+      console.log("logout");
+      if (confirm("are you sure to logout?")) {
+        localStorage.clear();
+        this.$router.push("/");
+        this.loginStatus = true;
+      }
+    },
+    goToLiveBroadcast() {},
+    goToUserProfile() {
+      if (!this.loginStatus) {
+        this.$router.push("/userprofile");
+      } else {
+        this.goToLogin();
+      }
+    },
+  },
+};
+</script>
 
 <style scoped></style>

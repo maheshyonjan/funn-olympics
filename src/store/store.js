@@ -17,6 +17,8 @@ const state = {
     count: 0,
     baseUrl: 'http://localhost:3000',
     liveStreamId: 1,
+    role: '',
+    LoggedInUser: {},
 }
 
 const getters = {
@@ -24,6 +26,9 @@ const getters = {
 }
 
 const mutations = {
+    storeUser(state, user) {
+        state.LoggedInUser = user
+    },
     increment(state) {
         state.count++;
     },
@@ -33,6 +38,9 @@ const mutations = {
 }
 
 const actions = {
+    storeUser: ({ commit }, user) => {
+        commit('storeUser', user)
+    },
     increment: ({ commit }) => commit('increment'),
     decrement: ({ commit }) => commit('decrement'),
     incrementIfOdd: ({ commit, state }) => {

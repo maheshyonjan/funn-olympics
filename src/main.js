@@ -25,9 +25,12 @@ import LightBootstrap from './light-bootstrap-main'
 import routes from './routes/routes'
 
 import './registerServiceWorker'
+import Vuelidate from 'vuelidate'
+
 // plugin setup
 Vue.use(VueRouter)
 Vue.use(LightBootstrap)
+Vue.use(Vuelidate)
 
 import { axios } from "axios";
 Vue.prototype.axios = axios;

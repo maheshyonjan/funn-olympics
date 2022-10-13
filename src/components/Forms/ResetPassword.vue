@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="box">
-      <h1>Login</h1>
+      <h1>password reset</h1>
       <input v-model="email" type="text" placeholder="Email" />
       <input v-model="password" type="password" placeholder="Password" />
-      <CButton style="color: white" @click="goToResetPassword">
+      <CButton style="color: white" @click="goToRegister">
         forgot password?
       </CButton>
       <button class="btn" @click="login">Login</button>
@@ -88,9 +88,6 @@ export default {
     },
     goToRegister() {
       this.$router.push("/register");
-    },
-    goToResetPassword() {
-      this.$router.push("/resetpassword");
     },
   },
 };
